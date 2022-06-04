@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Salto : MonoBehaviour
 {
+    AudioSource source;
     public float jumpForce;
     public int maxJumps;
     int hasJumps;
@@ -11,6 +12,7 @@ public class Salto : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        source = GetComponent<AudioSource>();
         hasJumps = maxJumps;
         rb = GetComponent<Rigidbody>();
     }
@@ -18,10 +20,11 @@ public class Salto : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space) && hasJumps>0)
+        if (Input.GetKeyDown(KeyCode.Space) && hasJumps>0)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             hasJumps--;
+            source.Play();
         }
         
     }
