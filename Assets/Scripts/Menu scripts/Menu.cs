@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Death : MonoBehaviour
+public class Menu : MonoBehaviour
 {
-    public GameObject sphere;
+    public void Play()
+    {
+        SceneManager.LoadScene("Menu");
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +18,6 @@ public class Death : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        
     }
 }
