@@ -35,4 +35,12 @@ public class Ball : MonoBehaviour
             }
         }
     }
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.tag == "Green")
+        {
+            Debug.Log("Win");
+            SceneManager.LoadScene("Win");
+        }
+    }
 }
