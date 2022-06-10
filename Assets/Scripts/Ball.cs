@@ -11,6 +11,7 @@ public class Ball : MonoBehaviour
 
     void Death()
     {
+        alive = false;
         Destroy(rb);
         SceneManager.LoadScene("GameOver");
     }
@@ -29,9 +30,7 @@ public class Ball : MonoBehaviour
         {
             if (rb.position.y < -depth)
             {
-                alive = false;
                 Death();
-                gameObject.SetActive(false);
             }
         }
     }
@@ -39,8 +38,11 @@ public class Ball : MonoBehaviour
     {
         if (col.gameObject.tag == "Green")
         {
-            Debug.Log("Win");
             SceneManager.LoadScene("Win");
+        }
+        else if (col.gameObject.tag == "Death")
+        {
+            Death();
         }
     }
 }

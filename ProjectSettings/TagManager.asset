@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ground
   - Green
+  - Death
   layers:
   - Default
   - TransparentFX
