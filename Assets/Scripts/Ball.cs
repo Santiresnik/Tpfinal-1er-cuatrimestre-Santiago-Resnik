@@ -18,7 +18,6 @@ public class Ball : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         alive = true;
         rb = GetComponent<Rigidbody>();
     }
@@ -26,6 +25,10 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        while (alive)
+        {
+            music.Play();
+        }
         if (alive)
         {
             if (rb.position.y < -depth)
