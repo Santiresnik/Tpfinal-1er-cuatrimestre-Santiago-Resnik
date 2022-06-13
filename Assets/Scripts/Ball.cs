@@ -25,10 +25,6 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        while (alive)
-        {
-            music.Play();
-        }
         if (alive)
         {
             if (rb.position.y < -depth)
