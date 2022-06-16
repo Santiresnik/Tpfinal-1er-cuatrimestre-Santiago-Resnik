@@ -7,6 +7,7 @@ public class Salto : MonoBehaviour
     AudioSource source;
     public float jumpForce;
     public int maxJumps;
+    public GameObject pelota;
     int hasJumps;
     Rigidbody rb;
     // Start is called before the first frame update
@@ -22,9 +23,11 @@ public class Salto : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && hasJumps>0)
         {
+            Instantiate(pelota, new Vector3(transform.position.x, transform.position.y+2, transform.position.z), Quaternion.identity);
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             hasJumps--;
             source.Play();
+
         }
         
     }
