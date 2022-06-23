@@ -8,6 +8,7 @@ public class Salto : MonoBehaviour
     public float jumpForce;
     public int maxJumps;
     public GameObject pelota;
+    int hasBalls;
     int hasJumps;
     Rigidbody rb;
     // Start is called before the first frame update
@@ -21,13 +22,14 @@ public class Salto : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && hasJumps>0)
+        if (Input.GetKeyDown(KeyCode.Space) && hasJumps > 0)
         {
-            Instantiate(pelota, new Vector3(transform.position.x, transform.position.y+2, transform.position.z), Quaternion.identity);
+            for (hasBalls = 0; hasBalls <= 3; hasBalls++)
+            {
+                Instantiate(pelota, new Vector3(transform.position.x + 20, transform.position.y + 8, transform.position.z), Quaternion.identity);
+            }
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             hasJumps--;
-            source.Play();
-
         }
         
     }
